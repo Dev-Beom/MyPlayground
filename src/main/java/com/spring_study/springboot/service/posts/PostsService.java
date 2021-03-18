@@ -2,13 +2,14 @@ package com.spring_study.springboot.service.posts;
 
 import com.spring_study.springboot.domain.posts.Posts;
 import com.spring_study.springboot.domain.posts.PostsRepository;
+import com.spring_study.springboot.web.dto.PostsListResponseDto;
 import com.spring_study.springboot.web.dto.PostsResponseDto;
 import com.spring_study.springboot.web.dto.PostsSaveRequestDto;
 import com.spring_study.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
