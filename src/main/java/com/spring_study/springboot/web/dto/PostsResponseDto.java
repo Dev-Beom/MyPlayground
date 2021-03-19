@@ -7,13 +7,13 @@ import lombok.Getter;
 public class PostsResponseDto {
     private Long id;
     private String title;
-    private String contents;
+    private String content;
     private String author;
 
     public PostsResponseDto(Posts entity) {
         this.id = entity.getId();
         this.title = entity.getTitle();
-        this.contents = entity.getContent();
+        this.content = entity.getContent();
         this.author = entity.getAuthor();
     }
 }
