@@ -1,4 +1,4 @@
-package com.spring.study.Config;
+package com.spring.study.config;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
