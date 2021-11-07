@@ -1,4 +1,4 @@
-package com.spring.study.Model;
+package com.spring.study.naverMovie.domain;
 
 import lombok.Builder;
 import lombok.Getter;
