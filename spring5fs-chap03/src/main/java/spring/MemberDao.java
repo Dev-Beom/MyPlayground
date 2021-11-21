@@ -6,7 +6,7 @@ import java.util.Map;
 public class MemberDao {
     private static long nextId = 0;
 
-    private Map<String, Member> database = new HashMap<>();
+    private final Map<String, Member> database = new HashMap<>();
 
     public Member selectByEmail(String email) {
         return database.get(email);

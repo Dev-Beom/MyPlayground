@@ -4,10 +4,10 @@ import java.time.LocalDateTime;
 
 public class Member {
     private Long id;
-    private String email;
+    private final String email;
     private String password;
-    private String name;
-    private LocalDateTime registerDateTime;
+    private final String name;
+    private final LocalDateTime registerDateTime;
 
     public Member(String email, String password, String name, LocalDateTime registerDateTime) {
         this.email = email;

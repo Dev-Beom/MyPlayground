@@ -5,9 +5,9 @@ import spring.MemberDao;
 import spring.MemberRegisterService;
 
 public class Assembler {
-    private MemberDao memberDao;
-    private MemberRegisterService memberRegisterService;
-    private ChangePasswordService changePasswordService;
+    private final MemberDao memberDao;
+    private final MemberRegisterService memberRegisterService;
+    private final ChangePasswordService changePasswordService;
 
     public Assembler() {
         memberDao = new MemberDao();
