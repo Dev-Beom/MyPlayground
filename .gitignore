@@ -150,6 +150,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-/.idea/
+.idea
 */build
 */.gradle
