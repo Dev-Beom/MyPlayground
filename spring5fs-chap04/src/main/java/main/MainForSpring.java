@@ -83,8 +83,8 @@ public class MainForSpring {
                 "명령어 사용법:\n" +
                 "회원가입\tnew 이메일 이름 암호 암호확인\n" +
                 "비밀번호 변경\tchange 이메일 현재비밀번호 변경비밀번호\n" +
-                "회원 리스트\tlist" +
-                "회원 정보\tinfo 이메일";
+                "회원 리스트\tlist\n" +
+                "회원 정보\tinfo 이메일\n";
         System.out.println(helpMsg);
     }
 
