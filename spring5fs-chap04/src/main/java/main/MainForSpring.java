@@ -27,6 +27,9 @@ public class MainForSpring {
             } else if (command.startsWith("change")) {
                 processChangeCommand(command.split(" "));
                 continue;
+            } else if (command.equals("list")) {
+                processListCommand();
+                continue;
             }
             printHelp();
         }
@@ -75,5 +78,10 @@ public class MainForSpring {
     private static void printHelp() {
         String helpMsg = "\n잘못된 명령입니다. 아래 명령어 사용법을 확인하세요.\n" + "명령어 사용법:\n" + "new 이메일 이름 암호 암호확인\n" + "change 이메일 현재비밀번호 변경비밀번호\n";
         System.out.println(helpMsg);
+    }
+
+    private static void processListCommand() {
+        MemberListPrinter listPrinter = context.getBean("listPrinter", MemberListPrinter.class);
+        listPrinter.printAll();
     }
 }
