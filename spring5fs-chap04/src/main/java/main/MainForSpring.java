@@ -76,7 +76,11 @@ public class MainForSpring {
     }
 
     private static void printHelp() {
-        String helpMsg = "\n잘못된 명령입니다. 아래 명령어 사용법을 확인하세요.\n" + "명령어 사용법:\n" + "new 이메일 이름 암호 암호확인\n" + "change 이메일 현재비밀번호 변경비밀번호\n";
+        String helpMsg = "\n잘못된 명령입니다. 아래 명령어 사용법을 확인하세요.\n" +
+                "명령어 사용법:\n" +
+                "new 이메일 이름 암호 암호확인\n" +
+                "change 이메일 현재비밀번호 변경비밀번호\n" +
+                "list";
         System.out.println(helpMsg);
     }
 
