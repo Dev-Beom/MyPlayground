@@ -30,6 +30,9 @@ public class MainForSpring {
             } else if (command.equals("list")) {
                 processListCommand();
                 continue;
+            } else if (command.startsWith("info ")) {
+                processInfoCommand(command.split(" "));
+                continue;
             }
             printHelp();
         }
@@ -78,14 +81,24 @@ public class MainForSpring {
     private static void printHelp() {
         String helpMsg = "\n잘못된 명령입니다. 아래 명령어 사용법을 확인하세요.\n" +
                 "명령어 사용법:\n" +
-                "new 이메일 이름 암호 암호확인\n" +
-                "change 이메일 현재비밀번호 변경비밀번호\n" +
-                "list";
+                "회원가입\tnew 이메일 이름 암호 암호확인\n" +
+                "비밀번호 변경\tchange 이메일 현재비밀번호 변경비밀번호\n" +
+                "회원 리스트\tlist" +
+                "회원 정보\tinfo 이메일";
         System.out.println(helpMsg);
     }
 
     private static void processListCommand() {
         MemberListPrinter listPrinter = context.getBean("listPrinter", MemberListPrinter.class);
         listPrinter.printAll();
+    }
+
+    private static void processInfoCommand(String[] arg) {
+        if (arg.length != 2) {
+            printHelp();
+            return;
+        }
+        MemberInfoPrinter infoPrinter = context.getBean("infoPrinter", MemberInfoPrinter.class);
+        infoPrinter.printMemberInfo(arg[1]);
     }
 }
