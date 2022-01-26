@@ -1,7 +1,13 @@
 package spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class MemberRegisterService {
-    private final MemberDao memberDao;
+    @Autowired
+    private MemberDao memberDao;
+
+    public MemberRegisterService() {
+    }
 
     public MemberRegisterService(MemberDao memberDao) {
         this.memberDao = memberDao;
