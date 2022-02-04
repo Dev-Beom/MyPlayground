@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * 클라이언트에게 제공하는 엔드포인트 클래스
+ */
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/movie")
