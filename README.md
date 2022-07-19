@@ -11,3 +11,6 @@ Java/Kotlin Spring Framework Study.
 
 #### connecting via redis-cli
 `docker run -it --network some-network --rm redis redis-cli -h some-redis`
+
+#### example
+`docker run --name redis-container -d -p 6379:6379 redis`
