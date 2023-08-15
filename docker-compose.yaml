@@ -1,13 +1,13 @@
-version: 3
+version: "3"
 services:
-  mondodb:
+  mongodb:
     image: mongo
     restart: always
-    container_name: mongodb-container
-    port:
+    container_name: jason-mongo
+    ports:
       - "27017:27017"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_ROOT_USERNAME: o
+      MONGO_INITDB_ROOT_PASSWORD: password
     volumes:
       - /data/mongodb/data/db:/data/db
