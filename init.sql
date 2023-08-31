@@ -1,0 +1,1 @@
+create database distributed_redisson_lock;
