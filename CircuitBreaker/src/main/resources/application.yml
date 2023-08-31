@@ -1,0 +1,38 @@
+resilience4j:
+  retry:
+    configs:
+      default:
+        max-attempts: 5 # ?? ??? ?
+        wait-duration: 5000 # ??? ??? ??? ?? [ms]
+    instances:
+      retry-test-3000:
+        base-config: default
+        wait-duration: 3000
+      retry-db-select-4000:
+        base-config: default
+        wait-duration: 4000
+      retry-db-select-5000:
+        base-config: default
+        wait-duration: 5000
+  circuitbreaker:
+    configs:
+      default:
+        register-health-indicator: true
+        sliding-window-type: TIME_BASED
+        sliding-window-size: 10
+        minimum-number-of-calls: 10 # ??? ??? 10? ???? ?? ??? ??? ? ??.
+        slow-call-rate-threshold: 100
+        slow-call-duration-threshold: 60000
+        failure-rate-threshold: 50
+        permitted-number-of-calls-in-half-open-state: 10
+        wait-duration-in-open-state: 10s  # ??? ??? Open ?? Half-open ?? ???? ?? Circuit Break ? ???? ?? [s]
+    instances:
+      circuit-test-70000:
+        base-config: default
+        slow-call-duration-threshold: 70000
+      circuit-db-select-200:
+        base-config: default
+        slow-call-duration-threshold: 200
+      circuit-db-select-300:
+        base-config: default
+        slow-call-duration-threshold: 300
