@@ -6,7 +6,7 @@ spring:
     password: local
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     properties:
       hibernate:
         format_sql: true
@@ -15,3 +15,7 @@ spring:
           time_zone: UTC
         dialect: org.hibernate.dialect.MySQL5Dialect
         show_sql: true
+
+config:
+  enable-init-data: false
+  init-data-count: 10000
