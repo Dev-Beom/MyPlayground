@@ -15,21 +15,21 @@ import org.springframework.stereotype.Repository
 class DocumentRepositoryWithQueryDSL(
     private val queryFactory: JPAQueryFactory
 ) : QuerydslRepositorySupport(Document::class.java) {
-    fun findAllForNoOffset(id: Long? = 0, size: Long): Slice<Document> {
+    fun findAllForNoOffset(id: Long?, size: Long = 20): NoOffsetResponse<Document> {
         val dynamicLtId = BooleanBuilder()
         if (id != null) {
             dynamicLtId.and(document.id.lt(id))
         }
-        return queryFactory
+        val queryResult = queryFactory
             .selectFrom(document)
             .where(dynamicLtId)
             .orderBy(document.id.desc())
             .limit(size)
             .fetch()
-            .toSlice()
+        val nextId = queryResult.last().id
+        return queryResult.toOffsetResponse(nextId)
     }
 
-    fun <T> List<T>.toSlice(): SliceImpl<T> {
-        return SliceImpl(this, PageRequest.ofSize(this.size), this.isNotEmpty())
-    }
+    fun <T> List<T>.toOffsetResponse(nextId: Long): NoOffsetResponse<T> =
+        NoOffsetResponse.of(this, nextId)
 }
